@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sombra Veículos | QG de Vendas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0a0a0a; color: #ffffff; }
+        .card-veiculo { transition: transform 0.3s; border: 1px solid #333; }
+        .card-veiculo:hover { transform: scale(1.05); border-color: #ff0000; }
+    </style>
+</head>
+<body>
+
+    <header class="p-6 border-b border-gray-800 flex justify-between items-center">
+        <h1 class="text-2xl font-bold tracking-tighter text-red-600">SOMBRA_VEÍCULOS</h1>
+        <nav class="space-x-6">
+            <a href="#" class="hover:text-red-500">Motos</a>
+            <a href="#" class="hover:text-red-500">Carros</a>
+            <a href="#" class="hover:text-red-500">Pesados</a>
+        </nav>
+    </header>
+
+    <section class="py-20 text-center bg-gradient-to-b from-gray-900 to-black">
+        <h2 class="text-4xl font-extrabold mb-4">ENCONTRE SUA PRÓXIMA MISSÃO</h2>
+        <div class="max-w-2xl mx-auto px-4">
+            <input type="text" placeholder="Buscar modelo (Ex: XRE 300, MT-09...)" 
+                   class="w-full p-4 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:border-red-600">
+        </div>
+    </section>
+
+    <main class="container mx-auto py-12 px-4">
+        <h3 class="text-xl font-semibold mb-8 border-l-4 border-red-600 pl-3">DESTAQUES DO INVENTÁRIO</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="lista-veiculos">
+            </div>
+    </main>
+
+    <script>
+        // Banco de Dados Tático (Simulação)
+        const inventario = [
+            { id: 1, categoria: 'Motos', modelo: 'Honda XRE 300', preco: 'R$ 28.500', img: 'https://images.unsplash.com/photo-1558981403-c5f91cbba527?q=80&w=400' },
+            { id: 2, categoria: 'Motos', modelo: 'Yamaha MT-09', preco: 'R$ 59.900', img: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?q=80&w=400' },
+            { id: 3, categoria: 'Carros', modelo: 'Civic Type R', preco: 'R$ 250.000', img: 'https://images.unsplash.com/photo-1594070319944-7c0c6380b1ca?q=80&w=400' }
+        ];
+
+        const grid = document.getElementById('lista-veiculos');
+
+        inventario.forEach(v => {
+            grid.innerHTML += `
+                <div class="card-veiculo bg-gray-900 rounded-xl overflow-hidden">
+                    <img src="${v.img}" alt="${v.modelo}" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <span class="text-xs text-red-500 font-bold uppercase">${v.categoria}</span>
+                        <h4 class="text-xl font-bold mt-1">${v.modelo}</h4>
+                        <p class="text-gray-400 mt-2">${v.preco}</p>
+                        <button class="w-full mt-4 bg-red-600 hover:bg-red-700 text-white font-bold py-2 rounded">VER DETALHES</button>
+                    </div>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
