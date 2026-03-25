@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Léo Variedades | Catálogo de Elite</title>
+    <style>
+        :root { --red: #d32f2f; --dark: #0a0a0a; --gray: #1a1a1a; --green: #25d366; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--dark); color: white; text-align: center; }
+        
+        header { padding: 40px 20px; background: linear-gradient(to bottom, #111, var(--dark)); border-bottom: 3px solid var(--red); }
+        h1 { text-transform: uppercase; letter-spacing: 4px; margin: 0; }
+
+        /* BARRA DE CATEGORIAS (O QUE VOCÊ PEDIU) */
+        .filter-bar { margin: 20px 0; padding: 10px; position: sticky; top: 0; background: var(--dark); z-index: 100; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .filter-btn { background: var(--gray); border: 1px solid #333; color: white; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        .filter-btn:hover, .filter-btn.active { background: var(--red); border-color: var(--red); }
+
+        /* GRID DE PRODUTOS */
+        .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 20px; max-width: 1200px; margin: 0 auto; }
+        .card { background: var(--gray); border-radius: 12px; overflow: hidden; border: 1px solid #222; transition: 0.4s; display: block; }
+        .card.hide { display: none; } /* Esconde o que não foi filtrado */
+        
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .card-info { padding: 15px; text-align: left; }
+        .card-info h3 { margin: 0; color: var(--red); }
+        .card-info p { color: #aaa; font-size: 0.9em; margin: 10px 0; }
+        .price { display: block; font-size: 1.4em; font-weight: bold; color: var(--green); margin-bottom: 15px; }
+        
+        .btn-whats { display: block; background: var(--green); color: white; text-align: center; padding: 10px; text-decoration: none; border-radius: 5px; font-weight: bold; }
+
+        footer { padding: 30px; color: #555; font-size: 0.8em; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>LÉO VARIEDADES</h1>
+    <p>Operação Goiânia - Veículos e Importados</p>
+</header>
+
+<div class="filter-bar">
+    <button class="filter-btn active" onclick="filterSelection('todos')">TODOS</button>
+    <button class="filter-btn" onclick="filterSelection('motos')">MOTOS</button>
+    <button class="filter-btn" onclick="filterSelection('carros')">CARROS</button>
+    <button class="filter-btn" onclick="filterSelection('outros')">DIVERSOS</button>
+</div>
+
+<div class="container">
+    <div class="card motos">
+        <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=500" alt="XRE 300">
+        <div class="card-info">
+            <h3>Honda XRE 300</h3>
+            <p>Ano 2024 - Escapamento Dore + Módulo Átomo.</p>
+            <span class="price">R$ 29.500</span>
+            <a href="https://wa.me/5562999999999" class="btn-whats">Negociar Agora</a>
+        </div>
+    </div>
+
+    <div class="card motos">
+        <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=500" alt="MT-09">
+        <div class="card-info">
+            <h3>Yamaha MT-09</h3>
+            <p>A Besta. 0km sob encomenda. Consulte cores.</p>
+            <span class="price">R$ 61.000</span>
+            <a href="https://wa.me/5562999999999" class="btn-whats">Encomendar</a>
+        </div>
+    </div>
+
+    <div class="card carros">
+        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=500" alt="Carro">
+        <div class="card-info">
+            <h3>Civic G10</h3>
+            <p>Completo, teto solar, bancos em couro. Impecável.</p>
+            <span class="price">R$ 115.000</span>
+            <a href="https://wa.me/5562999999999" class="btn-whats">Negociar Agora</a>
+        </div>
+    </div>
+
+    <div class="card outros">
+        <img src="https://images.unsplash.com/photo-1556656793-062ff9878258?w=500" alt="iPhone">
+        <div class="card-info">
+            <h3>iPhone 15 Pro Max</h3>
+            <p>Titânio, 256GB. Novo e lacrado.</p>
+            <span class="price">R$ 7.200</span>
+            <a href="https://wa.me/5562999999999" class="btn-whats">Comprar</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 Léo Variedades - Protocolo Sombra</p>
+</footer>
+
+<script>
+    function filterSelection(c) {
+        var x, i;
+        x = document.getElementsByClassName("card");
+        if (c == "todos") c = "";
+        for (i = 0; i < x.length; i++) {
+            x[i].classList.add("hide");
+            if (x[i].className.indexOf(c) > -1) {
+                x[i].classList.remove("hide");
+            }
+        }
+        // Atualiza o botão ativo
+        var btns = document.getElementsByClassName("filter-btn");
+        for (var j = 0; j < btns.length; j++) {
+            btns[j].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+    }
+</script>
+
+</body>
+  </html>
+  
