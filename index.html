@@ -8,7 +8,7 @@
         :root { --red: #d32f2f; --dark: #0a0a0a; --gray: #1a1a1a; --green: #25d366; --white: #ffffff; --blue: #2196f3; }
         body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--dark); color: var(--white); text-align: center; }
         
-        header { padding: 50px 20px; background: linear-gradient(to bottom, #111, var(--dark)); border-bottom: 4px solid var(--red); }
+        header { padding: 40px 20px; background: linear-gradient(to bottom, #111, var(--dark)); border-bottom: 4px solid var(--red); }
         h1 { text-transform: uppercase; letter-spacing: 5px; margin: 0; font-size: 2.2em; }
         header p { color: #888; font-weight: bold; margin-top: 10px; }
 
@@ -16,32 +16,38 @@
         .filter-btn { background: var(--gray); border: 1px solid #333; color: white; padding: 12px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; text-transform: uppercase; font-size: 0.75em; }
         .filter-btn:hover, .filter-btn.active { background: var(--red); border-color: var(--white); }
 
+        /* GRID PAREADO - UM DO LADO DO OUTRO */
         .container { 
             display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-            gap: 25px; padding: 20px; max-width: 1400px; margin: 0 auto; 
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+            gap: 20px; 
+            padding: 20px; 
+            max-width: 1400px; 
+            margin: 0 auto; 
         }
 
         .card { background: var(--gray); border-radius: 15px; overflow: hidden; border: 1px solid #222; transition: 0.4s; display: flex; flex-direction: column; }
         .card:hover { transform: translateY(-8px); border-color: var(--red); }
         
-        .card img { width: 100%; height: 240px; object-fit: cover; border-bottom: 3px solid var(--red); background: #222; }
-        .card-info { padding: 20px; text-align: left; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
-        .card-info h3 { margin: 0; color: var(--red); text-transform: uppercase; font-size: 1.2em; }
+        .card img { width: 100%; height: 220px; object-fit: cover; border-bottom: 3px solid var(--red); background: #222; }
+        .card-info { padding: 15px; text-align: left; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .card-info h3 { margin: 0; color: var(--red); text-transform: uppercase; font-size: 1.1em; }
         
-        /* Cor azul para eletrônicos */
         .eletronicos h3 { color: var(--blue); }
         .eletronicos img { border-bottom-color: var(--blue); }
 
-        .card-info p { color: #aaa; font-size: 0.85em; margin: 10px 0; min-height: 40px; }
+        .card-info p { color: #aaa; font-size: 0.85em; margin: 8px 0; min-height: 35px; }
+        .price-tag { background: rgba(0,0,0,0.2); padding: 10px; border-radius: 8px; margin-bottom: 12px; border-left: 4px solid var(--green); }
+        .price { font-size: 1.5em; font-weight: bold; color: var(--green); display: block; }
         
-        .price-tag { background: rgba(0,0,0,0.2); padding: 10px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid var(--green); }
-        .price { font-size: 1.6em; font-weight: bold; color: var(--green); display: block; }
-        
-        .btn-whats { display: block; background: var(--green); color: white; text-align: center; padding: 15px; text-decoration: none; border-radius: 8px; font-weight: bold; text-transform: uppercase; transition: 0.3s; font-size: 1em; }
+        .btn-whats { display: block; background: var(--green); color: white; text-align: center; padding: 12px; text-decoration: none; border-radius: 8px; font-weight: bold; text-transform: uppercase; transition: 0.3s; font-size: 0.9em; }
         .btn-whats:hover { background: #1ebd59; }
 
-        footer { padding: 40px; color: #444; font-size: 0.8em; border-top: 1px solid #1a1a1a; margin-top: 40px; }
+        /* RODAPÉ COM SEUS CRÉDITOS */
+        footer { padding: 50px 20px; color: #666; font-size: 0.9em; border-top: 1px solid #1a1a1a; margin-top: 40px; background: #050505; }
+        .instagram-link { color: var(--white); text-decoration: none; font-weight: bold; transition: 0.3s; display: inline-block; margin-top: 10px; }
+        .instagram-link:hover { color: #E1306C; } /* Cor do Instagram no hover */
+
         .hide { display: none !important; }
     </style>
 </head>
@@ -49,7 +55,7 @@
 
 <header>
     <h1>LÉO VARIEDADES</h1>
-    <p>Operação Goiânia | Veículos & Tecnologia</p>
+    <p>Operação Goiânia | Veículos & Eletrônicos</p>
 </header>
 
 <div class="filter-bar">
@@ -64,9 +70,39 @@
         <img src="cb500.jpg" alt="Honda CB 500X">
         <div class="card-info">
             <h3>Honda CB 500X</h3>
-            <p>Trail robusta para missões urbanas.</p>
+            <p>Trail robusta para qualquer missão.</p>
             <div class="price-tag"><span class="price">R$ 42.500</span></div>
             <a href="https://wa.me/5594981371128?text=Interesse+na+CB500X" class="btn-whats">Comprar Agora</a>
+        </div>
+    </div>
+
+    <div class="card motos">
+        <img src="cbr1000.jpg" alt="CBR 1000RR">
+        <div class="card-info">
+            <h3>CBR 1000RR-R</h3>
+            <p>Tecnologia Fireblade de elite.</p>
+            <div class="price-tag"><span class="price">R$ 115.000</span></div>
+            <a href="https://wa.me/5594981371128?text=Interesse+na+CBR1000RR" class="btn-whats">Comprar Agora</a>
+        </div>
+    </div>
+
+    <div class="card motos">
+        <img src="hornet.jpg" alt="Hornet">
+        <div class="card-info">
+            <h3>Honda Hornet</h3>
+            <p>O ronco clássico das ruas.</p>
+            <div class="price-tag"><span class="price">R$ 38.000</span></div>
+            <a href="https://wa.me/5594981371128?text=Interesse+na+Hornet" class="btn-whats">Comprar Agora</a>
+        </div>
+    </div>
+
+    <div class="card motos">
+        <img src="mvagusta.jpg" alt="MV Agusta">
+        <div class="card-info">
+            <h3>MV Agusta Brutale</h3>
+            <p>Exclusividade italiana bruta.</p>
+            <div class="price-tag"><span class="price">R$ 148.000</span></div>
+            <a href="https://wa.me/5594981371128?text=Interesse+na+MVAgusta" class="btn-whats">Comprar Agora</a>
         </div>
     </div>
 
@@ -74,45 +110,66 @@
         <img src="mustang.jpg" alt="Mustang Shelby">
         <div class="card-info">
             <h3>Mustang Shelby</h3>
-            <p>V8 de alta performance.</p>
+            <p>V8 agressivo e visual tático.</p>
             <div class="price-tag"><span class="price">R$ 680.000</span></div>
             <a href="https://wa.me/5594981371128?text=Interesse+no+Mustang" class="btn-whats">Comprar Agora</a>
         </div>
     </div>
 
+    <div class="card carros">
+        <img src="ram.jpg" alt="Dodge RAM">
+        <div class="card-info">
+            <h3>Dodge RAM TRX</h3>
+            <p>Força bruta indestrutível.</p>
+            <div class="price-tag"><span class="price">R$ 895.000</span></div>
+            <a href="https://wa.me/5594981371128?text=Interesse+na+RAM" class="btn-whats">Comprar Agora</a>
+        </div>
+    </div>
+
+    <div class="card carros">
+        <img src="porsche.jpg" alt="Porsche GT3">
+        <div class="card-info">
+            <h3>Porsche GT3 RS</h3>
+            <p>Domínio total nas pistas.</p>
+            <div class="price-tag"><span class="price">R$ 2.450.000</span></div>
+            <a href="https://wa.me/5594981371128?text=Interesse+no+Porsche" class="btn-whats">Comprar Agora</a>
+        </div>
+    </div>
+
+    <div class="card carros">
+        <img src="bmw.jpg" alt="BMW M4">
+        <div class="card-info">
+            <h3>BMW M4 Competition</h3>
+            <p>Performance alemã absoluta.</p>
+            <div class="price-tag"><span class="price">R$ 735.000</span></div>
+            <a href="https://wa.me/5594981371128?text=Interesse+na+BMW" class="btn-whats">Comprar Agora</a>
+        </div>
+    </div>
+
     <div class="card eletronicos">
-        <img src="celular1.jpg" alt="Celular">
+        <img src="celular1.jpg" alt="Vaga para Celular">
         <div class="card-info">
             <h3>iPhone 15 Pro Max</h3>
-            <p>Tecnologia de elite. (Vaga para produto)</p>
+            <p>Vaga para eletrônico disponível.</p>
             <div class="price-tag"><span class="price">R$ 0.000</span></div>
-            <a href="https://wa.me/5594981371128?text=Interesse+no+iPhone" class="btn-whats">Consultar Preço</a>
+            <a href="https://wa.me/5594981371128?text=Consultar+iPhone" class="btn-whats">Consultar</a>
         </div>
     </div>
 
     <div class="card eletronicos">
-        <img src="celular2.jpg" alt="Celular">
+        <img src="celular2.jpg" alt="Vaga para Celular">
         <div class="card-info">
             <h3>Xiaomi 14 Ultra</h3>
-            <p>Potência e câmera profissional. (Vaga para produto)</p>
+            <p>Vaga para eletrônico disponível.</p>
             <div class="price-tag"><span class="price">R$ 0.000</span></div>
-            <a href="https://wa.me/5594981371128?text=Interesse+no+Xiaomi" class="btn-whats">Consultar Preço</a>
-        </div>
-    </div>
-
-    <div class="card eletronicos">
-        <img src="fone.jpg" alt="Eletrônico">
-        <div class="card-info">
-            <h3>AirPods Max</h3>
-            <p>Áudio imersivo de alta fidelidade. (Vaga para produto)</p>
-            <div class="price-tag"><span class="price">R$ 0.000</span></div>
-            <a href="https://wa.me/5594981371128?text=Interesse+nos+AirPods" class="btn-whats">Consultar Preço</a>
+            <a href="https://wa.me/5594981371128?text=Consultar+Xiaomi" class="btn-whats">Consultar</a>
         </div>
     </div>
 </div>
 
 <footer>
-    <p>&copy; 2026 Léo Variedades - Protocolo Sombra</p>
+    <p>&copy; 2026 Léo Variedades - Protocolo Sombra - Goiânia/GO</p>
+    <p>Criado por: <a href="https://www.instagram.com/leo_360_mt09" target="_blank" class="instagram-link">@leo_360_mt09</a></p>
 </footer>
 
 <script>
@@ -131,4 +188,3 @@
 
 </body>
 </html>
-
