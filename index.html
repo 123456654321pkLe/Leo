@@ -3,115 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Léo Variedades | Catálogo de Elite</title>
+    <title>Léo Variedades | Elite Goiânia - Vendas</title>
     <style>
-        :root { --red: #d32f2f; --dark: #0a0a0a; --gray: #1a1a1a; --green: #25d366; }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--dark); color: white; text-align: center; }
+        :root { --red: #d32f2f; --dark: #0a0a0a; --gray: #1a1a1a; --green: #25d366; --white: #ffffff; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: var(--dark); color: var(--white); text-align: center; line-height: 1.6; }
         
-        header { padding: 40px 20px; background: linear-gradient(to bottom, #111, var(--dark)); border-bottom: 3px solid var(--red); }
-        h1 { text-transform: uppercase; letter-spacing: 4px; margin: 0; }
+        header { padding: 60px 20px; background: linear-gradient(to bottom, #111, var(--dark)); border-bottom: 4px solid var(--red); }
+        h1 { text-transform: uppercase; letter-spacing: 6px; margin: 0; font-size: 2.5em; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        header p { color: #aaa; font-weight: bold; margin-top: 15px; font-size: 1.1em; }
 
-        /* BARRA DE CATEGORIAS (O QUE VOCÊ PEDIU) */
-        .filter-bar { margin: 20px 0; padding: 10px; position: sticky; top: 0; background: var(--dark); z-index: 100; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
-        .filter-btn { background: var(--gray); border: 1px solid #333; color: white; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: 0.3s; }
-        .filter-btn:hover, .filter-btn.active { background: var(--red); border-color: var(--red); }
+        /* FILTROS OPERACIONAIS */
+        .filter-bar { margin: 30px 0; padding: 15px; position: sticky; top: 0; background: rgba(10, 10, 10, 0.95); z-index: 100; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; backdrop-filter: blur(10px); box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        .filter-btn { background: var(--gray); border: 2px solid #333; color: var(--white); padding: 14px 28px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; text-transform: uppercase; font-size: 0.9em; letter-spacing: 1px; }
+        .filter-btn:hover, .filter-btn.active { background: var(--red); border-color: var(--white); box-shadow: 0 0 15px rgba(211, 47, 47, 0.6); transform: scale(1.05); }
 
-        /* GRID DE PRODUTOS */
-        .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 20px; max-width: 1200px; margin: 0 auto; }
-        .card { background: var(--gray); border-radius: 12px; overflow: hidden; border: 1px solid #222; transition: 0.4s; display: block; }
-        .card.hide { display: none; } /* Esconde o que não foi filtrado */
+        /* CONTAINER DE VENDAS */
+        .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 30px; max-width: 1400px; margin: 0 auto; }
+        .card { background: var(--gray); border-radius: 20px; overflow: hidden; border: 2px solid #222; transition: 0.4s; display: flex; flex-direction: column; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        .card:hover { transform: translateY(-10px); border-color: var(--red); box-shadow: 0 15px 30px rgba(211, 47, 47, 0.3); }
         
-        .card img { width: 100%; height: 200px; object-fit: cover; }
-        .card-info { padding: 15px; text-align: left; }
-        .card-info h3 { margin: 0; color: var(--red); }
-        .card-info p { color: #aaa; font-size: 0.9em; margin: 10px 0; }
-        .price { display: block; font-size: 1.4em; font-weight: bold; color: var(--green); margin-bottom: 15px; }
+        .card img { width: 100%; height: 280px; object-fit: cover; border-bottom: 3px solid var(--red); }
+        .card-info { padding: 25px; text-align: left; flex-grow: 1; display: flex; flex-direction: column; }
+        .card-info h3 { margin: 0; color: var(--red); text-transform: uppercase; font-size: 1.4em; letter-spacing: 1px; }
+        .card-info p { color: #ccc; font-size: 0.95em; margin: 15px 0; min-height: 50px; }
         
-        .btn-whats { display: block; background: var(--green); color: white; text-align: center; padding: 10px; text-decoration: none; border-radius: 5px; font-weight: bold; }
+        /* TABELA DE PREÇO BLINDADA */
+        .price-tag { background-color: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; margin-bottom: 25px; border: 1px solid #333; }
+        .price-label { color: #888; font-size: 0.8em; text-transform: uppercase; font-weight: bold; display: block; margin-bottom: 5px; }
+        .price { display: block; font-size: 2em; font-weight: bold; color: var(--green); text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
+        
+        /* BOTÃO DE COMPRA TÁTICA */
+        .btn-whats { display: block; background: var(--green); color: var(--white); text-align: center; padding: 18px; text-decoration: none; border-radius: 10px; font-weight: bold; text-transform: uppercase; transition: 0.3s; font-size: 1.1em; letter-spacing: 1px; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); }
+        .btn-whats:hover { background: #1ebd59; box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5); transform: translateY(-3px); }
 
-        footer { padding: 30px; color: #555; font-size: 0.8em; }
+        footer { padding: 50px; color: #555; font-size: 0.9em; border-top: 2px solid #1a1a1a; margin-top: 60px; }
+        .hide { display: none !important; }
     </style>
 </head>
 <body>
 
 <header>
     <h1>LÉO VARIEDADES</h1>
-    <p>Operação Goiânia - Veículos e Importados</p>
+    <p>Operação Goiânia | Máquinas de Elite & Artigos Exclusivos</p>
 </header>
 
 <div class="filter-bar">
-    <button class="filter-btn active" onclick="filterSelection('todos')">TODOS</button>
-    <button class="filter-btn" onclick="filterSelection('motos')">MOTOS</button>
-    <button class="filter-btn" onclick="filterSelection('carros')">CARROS</button>
-    <button class="filter-btn" onclick="filterSelection('outros')">DIVERSOS</button>
+    <button class="filter-btn active" onclick="filterSelection('todos', this)">TODOS</button>
+    <button class="filter-btn" onclick="filterSelection('motos', this)">MOTOS</button>
+    <button class="filter-btn" onclick="filterSelection('carros', this)">CARROS</button>
 </div>
 
 <div class="container">
     <div class="card motos">
-        <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=500" alt="XRE 300">
+        <img src="cb500.jpg" alt="Honda CB 500X">
         <div class="card-info">
-            <h3>Honda XRE 300</h3>
-            <p>Ano 2024 - Escapamento Dore + Módulo Átomo.</p>
-            <span class="price">R$ 29.500</span>
-            <a href="https://wa.me/5562999999999" class="btn-whats">Negociar Agora</a>
+            <h3>Honda CB 500X</h3>
+            <p>Trail robusta, pronta para missões urbanas e estradas desafiadoras.</p>
+            <div class="price-tag">
+                <span class="price-label">Preço à Vista</span>
+                <span class="price">R$ 42.500</span>
+            </div>
+            <a href="https://wa.me/5594981371128?text=Olá+Léo,+tenho+interesse+na+CB+500X" class="btn-whats">Comprar Agora</a>
         </div>
     </div>
 
     <div class="card motos">
-        <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=500" alt="MT-09">
+        <img src="cbr1000.jpg" alt="CBR 1000RR">
         <div class="card-info">
-            <h3>Yamaha MT-09</h3>
-            <p>A Besta. 0km sob encomenda. Consulte cores.</p>
-            <span class="price">R$ 61.000</span>
-            <a href="https://wa.me/5562999999999" class="btn-whats">Encomendar</a>
+            <h3>CBR 1000RR-R</h3>
+            <p>Domine as pistas com a tecnologia Fireblade e performance pura.</p>
+            <div class="price-tag">
+                <span class="price-label">Preço à Vista</span>
+                <span class="price">R$ 115.000</span>
+            </div>
+            <a href="https://wa.me/5594981371128?text=Olá+Léo,+tenho+interesse+na+CBR+1000RR" class="btn-whats">Comprar Agora</a>
+        </div>
+    </div>
+
+    <div class="card motos">
+        <img src="hornet.jpg" alt="Hornet">
+        <div class="card-info">
+            <h3>Honda Hornet</h3>
+            <p>O ronco lendário. Agilidade tática e torque brutal nas ruas.</p>
+            <div class="price-tag">
+                <span class="price-label">Preço à Vista</span>
+                <span class="price">R$ 38.000</span>
+            </div>
+            <a href="https://wa.me/5594981371128?text=Olá+Léo,+tenho+interesse+na+Hornet" class="btn-whats">Comprar Agora</a>
+        </div>
+    </div>
+
+    <div class="card motos">
+        <img src="mvagusta.jpg" alt="MV Agusta">
+        <div class="card-info">
+            <h3>MV Agusta Brutale</h3>
+            <p>Exclusividade italiana. Uma obra de arte em engenharia de alta performance.</p>
+            <div class="price-tag">
+                <span class="price-label">Preço à Vista</span>
+                <span class="price">R$ 148.000</span>
+            </div>
+            <a href="https://wa.me/5594981371128?text=Olá+Léo,+tenho+interesse+na+MV+Agusta" class="btn-whats">Comprar Agora</a>
         </div>
     </div>
 
     <div class="card carros">
-        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=500" alt="Carro">
+        <img src="mustang.jpg" alt="Mustang Shelby">
         <div class="card-info">
-            <h3>Civic G10</h3>
-            <p>Completo, teto solar, bancos em couro. Impecável.</p>
-            <span class="price">R$ 115.000</span>
-            <a href="https://wa.me/5562999999999" class="btn-whats">Negociar Agora</a>
+            <h3>Shelby Mustang GT350</h3>
+            <p>O pesadelo do asfalto. Visual agressivo, motor V8 e ronco inconfundível.</p>
+            <div class="price-tag">
+                <span class="price-label">Preço à Vista</span>
+                <span class="price">R$ 680.000</span>
+            </div>
+            <a href="https://wa.me/5594981371128?text=Olá+Léo,+tenho+interesse+no+Mustang+Shelby" class="btn-whats">Comprar Agora</a>
         </div>
     </div>
 
-    <div class="card outros">
-        <img src="https://images.unsplash.com/photo-1556656793-062ff9878258?w=500" alt="iPhone">
+    <div class="card carros">
+        <img src="ram.jpg" alt="Dodge RAM">
         <div class="card-info">
-            <h3>iPhone 15 Pro Max</h3>
-            <p>Titânio, 256GB. Novo e lacrado.</p>
-            <span class="price">R$ 7.200</span>
-            <a href="https://wa.me/5562999999999" class="btn-whats">Comprar</a>
+            <h3>Dodge RAM TRX</h3>
+            <p>Força bruta inigualável. A picape mais rápida e poderosa do mundo.</p>
+            <div class="price-tag">
+                <span class="price-label">Preço à Vista</span>
+                <span class="price">R$ 895.000</span>
+            </div>
+            <a href="https://wa.me/5594981371128?text=Olá+Léo,+tenho+interesse+na+RAM+TRX" class="btn-whats">Comprar Agora</a>
+        </div>
+    </div>
+
+    <div class="card carros">
+        <img src="porsche.jpg" alt="Porsche GT3">
+        <div class="card-info">
+            <h3>Porsche 911 GT3 RS</h3>
+            <p>Engenharia de pista para as ruas. Aerodinâmica pura e domínio total.</p>
+            <div class="price-tag">
+                <span class="price-label">Preço à Vista</span>
+                <span class="price">R$ 2.450.000</span>
+            </div>
+            <a href="https://wa.me/5594981371128?text=Olá+Léo,+tenho+interesse+no+Porsche+GT3" class="btn-whats">Comprar Agora</a>
+        </div>
+    </div>
+
+    <div class="card carros">
+        <img src="bmw.jpg" alt="BMW M4">
+        <div class="card-info">
+            <h3>BMW M4 Competition</h3>
+            <p>O equilíbrio perfeito entre luxo e a lendária performance alemã.</p>
+            <div class="price-tag">
+                <span class="price-label">Preço à Vista</span>
+                <span class="price">R$ 735.000</span>
+            </div>
+            <a href="https://wa.me/5594981371128?text=Olá+Léo,+tenho+interesse+na+BMW+M4" class="btn-whats">Comprar Agora</a>
         </div>
     </div>
 </div>
 
 <footer>
-    <p>&copy; 2026 Léo Variedades - Protocolo Sombra</p>
+    <p>&copy; 2026 Léo Variedades - Protocolo Sombra - Goiânia/GO</p>
+    <p>Todos os direitos reservados. Vendas exclusivas via WhatsApp.</p>
 </footer>
 
 <script>
-    function filterSelection(c) {
-        var x, i;
-        x = document.getElementsByClassName("card");
+    function filterSelection(c, btn) {
+        var x = document.getElementsByClassName("card");
         if (c == "todos") c = "";
-        for (i = 0; i < x.length; i++) {
+        
+        for (var i = 0; i < x.length; i++) {
             x[i].classList.add("hide");
             if (x[i].className.indexOf(c) > -1) {
                 x[i].classList.remove("hide");
             }
         }
-        // Atualiza o botão ativo
+
+        // Lógica de ativação dos botões de filtro
         var btns = document.getElementsByClassName("filter-btn");
         for (var j = 0; j < btns.length; j++) {
             btns[j].classList.remove("active");
         }
-        event.currentTarget.classList.add("active");
+        btn.classList.add("active");
     }
 </script>
 
 </body>
-  </html>
-  
+</html>
