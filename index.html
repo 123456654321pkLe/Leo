@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WAR ELITE | Léo Variedades</title>
+    <title>SWIFT | Léo Variedades</title>
     <style>
-        :root { --red: #d32f2f; --dark: #0a0a0a; --gray: #1a1a1a; --green: #25d366; --white: #ffffff; --blue: #2196f3; }
+        :root { --red: #d32f2f; --dark: #0a0a0a; --gray: #1a1a1a; --green: #25d366; --white: #ffffff; --blue: #2196f3; --pink: #e91e63; --orange: #ff9800; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: var(--dark); color: var(--white); text-align: center; overflow-x: hidden; }
         
         header { padding: 50px 20px; background: linear-gradient(to bottom, #111, var(--dark)); border-bottom: 4px solid var(--red); position: relative; }
@@ -15,21 +15,19 @@
         /* MENU HAMBÚRGUER */
         .menu-icon { position: absolute; top: 20px; left: 20px; font-size: 30px; cursor: pointer; color: var(--white); z-index: 1001; }
 
-        /* SIDEBAR WAR */
+        /* SIDEBAR SWIFT */
         .sidebar { height: 100%; width: 0; position: fixed; z-index: 1000; top: 0; left: 0; background-color: #0d0d0d; overflow-x: hidden; transition: 0.5s; padding-top: 60px; text-align: left; border-right: 3px solid var(--red); }
         .sidebar a { padding: 15px 25px; text-decoration: none; font-size: 18px; color: #888; display: block; transition: 0.3s; font-weight: bold; border-bottom: 1px solid #222; text-transform: uppercase; }
         .sidebar a:hover { color: var(--white); background: var(--red); }
         .sidebar .closebtn { position: absolute; top: 10px; right: 25px; font-size: 36px; color: var(--red); }
 
-        /* FILTROS COM ÍCONES */
+        /* FILTROS TÁTICOS */
         .filter-bar { margin: 20px 0; padding: 15px; position: sticky; top: 0; background: rgba(10,10,10,0.95); z-index: 900; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; backdrop-filter: blur(10px); }
         .filter-btn { background: var(--gray); border: 1px solid #333; color: white; padding: 12px 18px; border-radius: 8px; cursor: pointer; font-weight: bold; text-transform: uppercase; font-size: 0.8em; display: flex; align-items: center; gap: 8px; }
         .filter-btn.active { background: var(--red); border-color: var(--white); }
-        
-        /* Ajuste para os ícones ficarem P&B/Brancos */
         .filter-btn span.icon { filter: grayscale(100%) brightness(200%); font-size: 1.2em; }
 
-        /* GRID PAREADO (LADO A LADO) */
+        /* GRID DE ATIVOS */
         .container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; padding: 20px; max-width: 1400px; margin: 0 auto; }
         .card { background: var(--gray); border-radius: 15px; overflow: hidden; border: 1px solid #222; transition: 0.4s; display: flex; flex-direction: column; }
         .card:hover { transform: translateY(-8px); border-color: var(--red); }
@@ -54,33 +52,44 @@
 
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">👤 PERFIL WAR</a>
-  <a href="https://wa.me/5594981371128?text=Suporte+Tático+WAR" target="_blank">🛠️ SUPORTE</a>
+  <a href="#">👤 PERFIL SWIFT</a>
+  <a href="https://wa.me/5594981371128?text=Suporte+Tático+SWIFT" target="_blank">🛠️ SUPORTE</a>
   <a href="#">⚙️ CONFIGURAÇÕES</a>
   <a href="https://www.instagram.com/leo_360_mt09" target="_blank">📸 INSTAGRAM</a>
 </div>
 
 <header>
-    <h1><span class="war-brand">WAR</span> VARIEDADES</h1>
+    <h1><span class="war-brand">SWIFT</span> VARIEDADES</h1>
     <p>Operação Goiânia | Catálogo de Elite</p>
 </header>
 
 <div class="filter-bar">
-    <button class="filter-btn active" onclick="filterSelection('todos', this)">
-        TODOS <span class="icon">🌐</span>
-    </button>
-    <button class="filter-btn" onclick="filterSelection('motos', this)">
-        MOTOS <span class="icon">🏍️</span>
-    </button>
-    <button class="filter-btn" onclick="filterSelection('carros', this)">
-        CARROS <span class="icon">🚗</span>
-    </button>
-    <button class="filter-btn" onclick="filterSelection('eletronicos', this)">
-        ELETRÔNICOS <span class="icon">📱</span>
-    </button>
+    <button class="filter-btn active" onclick="filterSelection('todos', this)">TODOS <span class="icon">🌐</span></button>
+    <button class="filter-btn" onclick="filterSelection('motos', this)">MOTOS <span class="icon">🏍️</span></button>
+    <button class="filter-btn" onclick="filterSelection('beleza', this)">BELEZA <span class="icon">💄</span></button>
+    <button class="filter-btn" onclick="filterSelection('roupas', this)">ROUPAS <span class="icon">👕</span></button>
+    <button class="filter-btn" onclick="filterSelection('eletronicos', this)">ELETRÔNICOS <span class="icon">📱</span></button>
 </div>
 
 <div class="container">
+    <div class="card beleza">
+        <img src="perfume.jpg" alt="Perfume Importado">
+        <div class="card-info">
+            <h3 style="color: var(--pink);">Perfume Savage Elite</h3>
+            <div class="price-tag"><span class="price">R$ 450,00</span></div>
+            <a href="https://wa.me/5594981371128?text=Interesse+em+Beleza" class="btn-whats">Solicitar</a>
+        </div>
+    </div>
+
+    <div class="card roupas">
+        <img src="jaqueta.jpg" alt="Jaqueta Tática">
+        <div class="card-info">
+            <h3 style="color: var(--orange);">Jaqueta Corta-Vento Swift</h3>
+            <div class="price-tag"><span class="price">R$ 280,00</span></div>
+            <a href="https://wa.me/5594981371128?text=Interesse+em+Roupas" class="btn-whats">Ver Tamanhos</a>
+        </div>
+    </div>
+
     <div class="card motos">
         <img src="cb500.jpg" alt="CB 500X">
         <div class="card-info">
@@ -89,76 +98,19 @@
             <a href="https://wa.me/5594981371128?text=Interesse+na+CB500X" class="btn-whats">Comprar Agora</a>
         </div>
     </div>
-    <div class="card motos">
-        <img src="cbr1000.jpg" alt="CBR 1000">
-        <div class="card-info">
-            <h3>CBR 1000RR-R</h3>
-            <div class="price-tag"><span class="price">R$ 115.000</span></div>
-            <a href="https://wa.me/5594981371128?text=Interesse+na+CBR1000" class="btn-whats">Comprar Agora</a>
-        </div>
-    </div>
-    <div class="card motos">
-        <img src="hornet.jpg" alt="Hornet">
-        <div class="card-info">
-            <h3>Honda Hornet</h3>
-            <div class="price-tag"><span class="price">R$ 38.000</span></div>
-            <a href="https://wa.me/5594981371128?text=Interesse+na+Hornet" class="btn-whats">Comprar Agora</a>
-        </div>
-    </div>
-    <div class="card motos">
-        <img src="mvagusta.jpg" alt="MV Agusta">
-        <div class="card-info">
-            <h3>MV Agusta Brutale</h3>
-            <div class="price-tag"><span class="price">R$ 148.000</span></div>
-            <a href="https://wa.me/5594981371128?text=Interesse+na+MVAgusta" class="btn-whats">Comprar Agora</a>
-        </div>
-    </div>
-
-    <div class="card carros">
-        <img src="mustang.jpg" alt="Mustang">
-        <div class="card-info">
-            <h3>Mustang Shelby</h3>
-            <div class="price-tag"><span class="price">R$ 680.000</span></div>
-            <a href="https://wa.me/5594981371128?text=Interesse+no+Mustang" class="btn-whats">Comprar Agora</a>
-        </div>
-    </div>
-    <div class="card carros">
-        <img src="ram.jpg" alt="RAM">
-        <div class="card-info">
-            <h3>Dodge RAM TRX</h3>
-            <div class="price-tag"><span class="price">R$ 895.000</span></div>
-            <a href="https://wa.me/5594981371128?text=Interesse+na+RAM" class="btn-whats">Comprar Agora</a>
-        </div>
-    </div>
-    <div class="card carros">
-        <img src="porsche.jpg" alt="Porsche">
-        <div class="card-info">
-            <h3>Porsche GT3 RS</h3>
-            <div class="price-tag"><span class="price">R$ 2.450.000</span></div>
-            <a href="https://wa.me/5594981371128?text=Interesse+no+Porsche" class="btn-whats">Comprar Agora</a>
-        </div>
-    </div>
-    <div class="card carros">
-        <img src="bmw.jpg" alt="BMW">
-        <div class="card-info">
-            <h3>BMW M4 Comp.</h3>
-            <div class="price-tag"><span class="price">R$ 735.000</span></div>
-            <a href="https://wa.me/5594981371128?text=Interesse+na+BMW" class="btn-whats">Comprar Agora</a>
-        </div>
-    </div>
 
     <div class="card eletronicos">
         <img src="celular1.jpg" alt="iPhone">
         <div class="card-info">
             <h3 style="color: var(--blue);">iPhone 15 Pro Max</h3>
-            <div class="price-tag"><span class="price">R$ 0.000</span></div>
+            <div class="price-tag"><span class="price">Consultar</span></div>
             <a href="https://wa.me/5594981371128?text=Interesse+no+iPhone" class="btn-whats">Consultar</a>
         </div>
     </div>
 </div>
 
 <footer>
-    <p>&copy; 2026 WAR VARIEDADES - Protocolo Sombra</p>
+    <p>&copy; 2026 SWIFT VARIEDADES - Protocolo Sombra</p>
     <p>Operador: <a href="https://www.instagram.com/leo_360_mt09" target="_blank" class="instagram-link">@leo_360_mt09</a></p>
 </footer>
 
@@ -179,4 +131,5 @@
 </script>
 
 </body>
-</html>
+    </html>
+    
