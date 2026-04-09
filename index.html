@@ -12,22 +12,18 @@
         h1 { text-transform: uppercase; letter-spacing: 8px; margin: 0; font-size: 2.2em; color: var(--white); }
         .war-brand { color: var(--red); font-weight: 900; }
 
-        /* MENU HAMBÚRGUER */
         .menu-icon { position: absolute; top: 20px; left: 20px; font-size: 30px; cursor: pointer; color: var(--white); z-index: 1001; }
 
-        /* SIDEBAR SWIFT */
         .sidebar { height: 100%; width: 0; position: fixed; z-index: 1000; top: 0; left: 0; background-color: #0d0d0d; overflow-x: hidden; transition: 0.5s; padding-top: 60px; text-align: left; border-right: 3px solid var(--red); }
         .sidebar a { padding: 15px 25px; text-decoration: none; font-size: 18px; color: #888; display: block; transition: 0.3s; font-weight: bold; border-bottom: 1px solid #222; text-transform: uppercase; }
         .sidebar a:hover { color: var(--white); background: var(--red); }
         .sidebar .closebtn { position: absolute; top: 10px; right: 25px; font-size: 36px; color: var(--red); }
 
-        /* FILTROS TÁTICOS */
         .filter-bar { margin: 20px 0; padding: 15px; position: sticky; top: 0; background: rgba(10,10,10,0.95); z-index: 900; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; backdrop-filter: blur(10px); }
         .filter-btn { background: var(--gray); border: 1px solid #333; color: white; padding: 12px 18px; border-radius: 8px; cursor: pointer; font-weight: bold; text-transform: uppercase; font-size: 0.8em; display: flex; align-items: center; gap: 8px; }
         .filter-btn.active { background: var(--red); border-color: var(--white); }
         .filter-btn span.icon { filter: grayscale(100%) brightness(200%); font-size: 1.2em; }
 
-        /* GRID DE ATIVOS */
         .container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; padding: 20px; max-width: 1400px; margin: 0 auto; }
         .card { background: var(--gray); border-radius: 15px; overflow: hidden; border: 1px solid #222; transition: 0.4s; display: flex; flex-direction: column; }
         .card:hover { transform: translateY(-8px); border-color: var(--red); }
@@ -54,7 +50,6 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="#">👤 PERFIL SWIFT</a>
   <a href="https://wa.me/5594981371128?text=Suporte+Tático+SWIFT" target="_blank">🛠️ SUPORTE</a>
-  <a href="#">⚙️ CONFIGURAÇÕES</a>
   <a href="https://www.instagram.com/leo_360_mt09" target="_blank">📸 INSTAGRAM</a>
 </div>
 
@@ -66,36 +61,62 @@
 <div class="filter-bar">
     <button class="filter-btn active" onclick="filterSelection('todos', this)">TODOS <span class="icon">🌐</span></button>
     <button class="filter-btn" onclick="filterSelection('motos', this)">MOTOS <span class="icon">🏍️</span></button>
+    <button class="filter-btn" onclick="filterSelection('carros', this)">CARROS <span class="icon">🚗</span></button>
     <button class="filter-btn" onclick="filterSelection('beleza', this)">BELEZA <span class="icon">💄</span></button>
     <button class="filter-btn" onclick="filterSelection('roupas', this)">ROUPAS <span class="icon">👕</span></button>
     <button class="filter-btn" onclick="filterSelection('eletronicos', this)">ELETRÔNICOS <span class="icon">📱</span></button>
 </div>
 
 <div class="container">
-    <div class="card beleza">
-        <img src="perfume.jpg" alt="Perfume Importado">
-        <div class="card-info">
-            <h3 style="color: var(--pink);">Perfume Savage Elite</h3>
-            <div class="price-tag"><span class="price">R$ 450,00</span></div>
-            <a href="https://wa.me/5594981371128?text=Interesse+em+Beleza" class="btn-whats">Solicitar</a>
-        </div>
-    </div>
-
-    <div class="card roupas">
-        <img src="jaqueta.jpg" alt="Jaqueta Tática">
-        <div class="card-info">
-            <h3 style="color: var(--orange);">Jaqueta Corta-Vento Swift</h3>
-            <div class="price-tag"><span class="price">R$ 280,00</span></div>
-            <a href="https://wa.me/5594981371128?text=Interesse+em+Roupas" class="btn-whats">Ver Tamanhos</a>
-        </div>
-    </div>
-
     <div class="card motos">
         <img src="cb500.jpg" alt="CB 500X">
         <div class="card-info">
             <h3>Honda CB 500X</h3>
             <div class="price-tag"><span class="price">R$ 42.500</span></div>
             <a href="https://wa.me/5594981371128?text=Interesse+na+CB500X" class="btn-whats">Comprar Agora</a>
+        </div>
+    </div>
+    <div class="card motos">
+        <img src="hornet.jpg" alt="Hornet">
+        <div class="card-info">
+            <h3>Honda Hornet</h3>
+            <div class="price-tag"><span class="price">R$ 38.000</span></div>
+            <a href="https://wa.me/5594981371128?text=Interesse+na+Hornet" class="btn-whats">Comprar Agora</a>
+        </div>
+    </div>
+
+    <div class="card carros">
+        <img src="mustang.jpg" alt="Mustang">
+        <div class="card-info">
+            <h3>Mustang Shelby</h3>
+            <div class="price-tag"><span class="price">R$ 680.000</span></div>
+            <a href="https://wa.me/5594981371128?text=Interesse+no+Mustang" class="btn-whats">Comprar Agora</a>
+        </div>
+    </div>
+    <div class="card carros">
+        <img src="porsche.jpg" alt="Porsche">
+        <div class="card-info">
+            <h3>Porsche GT3 RS</h3>
+            <div class="price-tag"><span class="price">R$ 2.450.000</span></div>
+            <a href="https://wa.me/5594981371128?text=Interesse+no+Porsche" class="btn-whats">Comprar Agora</a>
+        </div>
+    </div>
+
+    <div class="card beleza">
+        <img src="perfume.jpg" alt="Perfume">
+        <div class="card-info">
+            <h3 style="color: var(--pink);">Perfume Savage</h3>
+            <div class="price-tag"><span class="price">R$ 450,00</span></div>
+            <a href="https://wa.me/5594981371128?text=Interesse+em+Beleza" class="btn-whats">Solicitar</a>
+        </div>
+    </div>
+
+    <div class="card roupas">
+        <img src="jaqueta.jpg" alt="Roupa">
+        <div class="card-info">
+            <h3 style="color: var(--orange);">Corta-Vento SWIFT</h3>
+            <div class="price-tag"><span class="price">R$ 280,00</span></div>
+            <a href="https://wa.me/5594981371128?text=Interesse+em+Roupas" class="btn-whats">Ver Tamanhos</a>
         </div>
     </div>
 
@@ -131,5 +152,5 @@
 </script>
 
 </body>
-    </html>
-    
+                                       </html>
+            
